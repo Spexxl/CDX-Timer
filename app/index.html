@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CDX-Timer</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div>
+            <a class="Closer"></a>
+            <a class="Expander"></a>
+            <a class="Minimize"></a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="Side-bar">
+            <h1 class="Tittle-tarefas">Tarefas<img src="./Assets/tasks.png"/></h1>
+            <section class="Tasks" id="Tasks">
+            </section>
+        </section>
+
+        <section class="Main-content">
+            <h1 class="Tittle-cdx">CDX Timer</h1>
+            <div class="Cronometer">
+                <h1 id="Timer-container">00:00:00</h1>
+                <a class="Start-button" id="Start-button"><img class="Start-img" id="Start-img" src="./Assets/Start.png"/></a>
+            </div>
+            <div class="Name-bar">
+                <h1 id="TaskNameinTimer"></h1>
+            </div>
+            <div class="Input-name">
+                <input type="text" class="EnterTaskCreate"/>
+                <a class="AddTaskButton"><img src="./Assets/Add Button.png"/></a>
+            </div>
+        </section>
+    </main>
+    
+    <script>require("./js/renderer")</script>
+</body>
+</html>
