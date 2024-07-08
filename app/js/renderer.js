@@ -1,6 +1,7 @@
 const timer = require("./timer");
 const tasks = require("./TaskCreate");
 const LoadTasks = require("./TaskManager");
+const { ipcRenderer } = require('electron');
 const TaskManager = require("./TaskManager");
 
 let ImgsButton = document.querySelector(".Start-img");
@@ -12,6 +13,21 @@ let CurrentTask = document.getElementById("TaskNameinTimer")
 let imgs = ["assets/Start.png", "assets/Pause.png"];
 let isRunning = false;
 
+document.querySelector('.Expander').addEventListener('click', () => {
+    ipcRenderer.send('maximize-window');
+});
+
+document.querySelector('.Minimize').addEventListener('click', () => {
+    ipcRenderer.send('minimize-window');
+});
+
+document.querySelector('.Closer').addEventListener('click', () => {
+    if (isRunning) {
+        timer.stop();
+        TaskManager.SaveTimer(CurrentTask.innerHTML);
+    }
+    ipcRenderer.send('close-window');
+});
 
 StartButton.addEventListener("click", function () {
     if (isRunning) {

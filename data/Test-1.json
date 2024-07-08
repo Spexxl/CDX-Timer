@@ -1,0 +1,7 @@
+{
+  "TaskName": "Test-1",
+  "Timer": "00:00:15",
+  "CreateData": "08/07/2024",
+  "ResetButton": "Test-1-Reload",
+  "DeleteButton": "Test-1-Delete"
+}

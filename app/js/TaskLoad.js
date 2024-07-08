@@ -96,8 +96,20 @@ function LoadExistsTasks(TaskCreateName, TaskDate, ResetButton, DeleteButton, Sy
     const imgs = ["assets/Expander.png", "assets/Expander-Selected.png"];
     const Cronometer = document.getElementById("Timer-container");
     const CurrentTask = document.getElementById("TaskNameinTimer");
+    let IsRotated = false; 
 
-    expanderImg.addEventListener("click", function() {section.classList.toggle("active");});
+    expanderImg.addEventListener("click", function() {
+        section.classList.toggle("active");
+        const ExpanderActiveImg = document.querySelector(`.Img-Expander-${TaskCreateName}`)
+        if (IsRotated)
+        {
+            ExpanderActiveImg.style.transform = 'rotate(0deg)';
+        }
+        else{
+            ExpanderActiveImg.style.transform = 'rotate(90deg)';
+        }
+        IsRotated = !IsRotated;
+    });
 
     reloadLink.addEventListener("click", async function() {
         taskTimer.lastChild.nodeValue = '00:00:00'

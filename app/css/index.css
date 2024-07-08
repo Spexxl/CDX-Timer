@@ -18,7 +18,7 @@ nav{
     display: flex;
     position: fixed;
     -webkit-app-region: drag;
-    z-index: 1000;
+    z-index: 100;
 }
 nav>div{
     display: flex;
@@ -26,6 +26,7 @@ nav>div{
     gap: 8px;
     margin-top: 10px;
     margin-left: 10px;
+    -webkit-app-region: no-drag;
 }
 .Closer{
     border-radius: 50%;
@@ -108,26 +109,40 @@ main{
     flex-direction: row;
     background-color: transparent;
 }
+.Tasks div>div>h1{
+    cursor: pointer;
+}
+.Tasks div>div>img{
+    margin-right: 5px;
+    cursor: pointer;
+}
 .Tasks div>h1{
     color: #B2B2B2;
     font-weight: 500;
     font-size: 20px;
 }
+.Tasks div>h1.active{
+    border-bottom: 4px solid#FF7E39 ;
+}
 .Tasks section{
     width: 100%;
-    height: 80px;
+    height: 0px;
     margin-top: 10px;
     border-radius: 11px;
-    display: none;
+    opacity: 0;
+    display: flex;
     align-items: center;
     flex-direction: column;
     background: #333333;
+    transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    overflow: hidden;
 }
 .Tasks section.active{
-    display: flex;
+    height: 80px;
+    opacity: 1;
 }
-.Tasks div>h1.active{
-    border-bottom: 4px solid#FF7E39 ;
+.Tasks div>img{
+    transition: transform 0.3s ease-in-out;
 }
 .Tasks section>div{
     display: flex;
@@ -201,6 +216,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;;
     border-radius: 0px 11px 11px 0px;
 }
 .Cronometer a>img{
@@ -229,6 +245,9 @@ main{
     flex-direction: row;
     gap: 15px;
     margin-top: 20px;
+}
+.Input-name a{
+    cursor: pointer;
 }
 .Input-name input{
     background: transparent;
